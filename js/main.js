@@ -2,6 +2,21 @@
    Anéis gerados em JS para manter o desenho fiel ao símbolo:
    levemente descentrados, nunca um alvo perfeito. */
 
+/* ========= CONFIGURAÇÃO DE VENDA =========
+   Coloque aqui o número do WhatsApp Business: só dígitos, com 55 + DDD.
+   Exemplo: "5551999998888". Enquanto estiver vazio, o botão leva para a DM do Instagram. */
+const KERN_WHATSAPP = "";
+const KERN_MENSAGEM = "Oi, quero o boné KERN Lote 01.";
+
+(function () {
+  if (!KERN_WHATSAPP) return;
+  const link = "https://wa.me/" + KERN_WHATSAPP + "?text=" + encodeURIComponent(KERN_MENSAGEM);
+  document.querySelectorAll(".js-comprar").forEach((a) => {
+    a.href = link;
+    a.textContent = "Comprar pelo WhatsApp";
+  });
+})();
+
 (function () {
   const NS = "http://www.w3.org/2000/svg";
   const reduzir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
