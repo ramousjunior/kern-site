@@ -3,17 +3,29 @@
    levemente descentrados, nunca um alvo perfeito. */
 
 /* ========= CONFIGURAÇÃO DE VENDA =========
-   Coloque aqui o número do WhatsApp Business: só dígitos, com 55 + DDD.
+   KERN_FASE: "lista" enquanto o lote não chegou (botão de lista de espera);
+              "venda" no dia em que o lote abrir para todo mundo.
+   KERN_WHATSAPP: número do WhatsApp Business, só dígitos, com 55 + DDD.
    Exemplo: "5551999998888". Enquanto estiver vazio, o botão leva para a DM do Instagram. */
+const KERN_FASE = "lista";
 const KERN_WHATSAPP = "";
-const KERN_MENSAGEM = "Oi, quero o boné KERN Lote 01.";
+const KERN_MENSAGEM = {
+  lista: "LISTA. Quero entrar na lista de espera do boné KERN Lote 01.",
+  venda: "Oi, quero o boné KERN Lote 01.",
+};
 
 (function () {
-  if (!KERN_WHATSAPP) return;
-  const link = "https://wa.me/" + KERN_WHATSAPP + "?text=" + encodeURIComponent(KERN_MENSAGEM);
+  const venda = KERN_FASE === "venda";
+  // Mostra só os textos da fase atual (sem JS, o HTML já mostra a lista de espera).
+  document.querySelectorAll("[data-fase]").forEach((el) => {
+    el.hidden = el.dataset.fase !== KERN_FASE;
+  });
+  const canal = KERN_WHATSAPP ? "WhatsApp" : "Instagram";
   document.querySelectorAll(".js-comprar").forEach((a) => {
-    a.href = link;
-    a.textContent = "Comprar pelo WhatsApp";
+    if (KERN_WHATSAPP) {
+      a.href = "https://wa.me/" + KERN_WHATSAPP + "?text=" + encodeURIComponent(KERN_MENSAGEM[KERN_FASE]);
+    }
+    a.textContent = venda ? "Comprar pelo " + canal : "Entrar na lista de espera";
   });
 })();
 

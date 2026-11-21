@@ -60,9 +60,10 @@
         <h1 id="hero-titulo" class="display">Mais uma<br>camada.</h1>
         <p class="hero__apoio">A hora não importa: o que importa é ir. Feito para quem já decidiu, às 5h ou às 22h.</p>
         <div class="hero__acoes">
-          <a class="botao-comprar js-comprar" href="https://ig.me/m/kern.run" target="_blank" rel="noopener">Comprar pelo Instagram</a>
+          <a class="botao-comprar js-comprar" href="https://ig.me/m/kern.run" target="_blank" rel="noopener">Entrar na lista de espera</a>
           <p class="dado">R$ 129,90</p>
         </div>
+        <p class="hero__nota" data-fase="lista">Chega em fevereiro. Quem está na lista compra 24 h antes de todo mundo.</p>
       </div>
 
       <figure class="foto foto--hero">
@@ -140,9 +141,10 @@
 
         <div class="produto__compra">
           <p class="preco dado">R$ 129,90</p>
-          <a class="botao-comprar js-comprar" href="https://ig.me/m/kern.run" target="_blank" rel="noopener">Comprar pelo Instagram</a>
+          <a class="botao-comprar js-comprar" href="https://ig.me/m/kern.run" target="_blank" rel="noopener">Entrar na lista de espera</a>
         </div>
-        <p class="produto__nota">Você fala direto com a gente, combina pagamento e envio, e recebe o código de rastreio. Tamanho único, regulável.</p>
+        <p class="produto__nota" data-fase="lista">O lote chega em fevereiro. Mande LISTA na conversa e você recebe a mensagem para comprar 24 h antes de abrir para todo mundo. Ninguém paga nada agora. Tamanho único, regulável.</p>
+        <p class="produto__nota" data-fase="venda" hidden>Você fala direto com a gente, combina pagamento e envio, e recebe o código de rastreio. Tamanho único, regulável.</p>
       </div>
     </section>
 
@@ -173,7 +175,7 @@
 
         <details>
           <summary>Qual é o tamanho?</summary>
-          <p>Tamanho único. A fita de nylon com engate de clique ajusta na cabeça. <mark class="pendente">Circunferência mínima e máxima em cm: medir na peça piloto</mark></p>
+          <p>Tamanho único. A fita de nylon com engate de clique ajusta na cabeça. <mark class="pendente">Circunferência mínima e máxima em cm: pedir ao fabricante</mark></p>
         </details>
         <details>
           <summary>Serve para homem e mulher?</summary>
@@ -185,7 +187,7 @@
         </details>
         <details>
           <summary>Como lavar?</summary>
-          <p><mark class="pendente">Instruções de lavagem: confirmar depois do teste de 10 lavagens na peça piloto</mark></p>
+          <p><mark class="pendente">Instruções de lavagem: confirmar com o fabricante</mark></p>
         </details>
         <details>
           <summary>O refletivo funciona como?</summary>
@@ -193,11 +195,16 @@
         </details>
         <details>
           <summary>Por que só 50 bonés?</summary>
-          <p>O Lote 01 é pequeno de propósito. A gente produz no Brasil, testa a peça na rua e só depois faz o próximo lote.</p>
+          <p>O Lote 01 é pequeno de propósito. A gente produz no Brasil, em lote pequeno, e só faz o próximo depois de ver esse na rua.</p>
+        </details>
+        <details data-fase="lista">
+          <summary>Quando o boné chega?</summary>
+          <p>O lote está em produção em Apucarana (PR) e chega em fevereiro, talvez no fim de janeiro. Assim que chegar, a gente avisa primeiro quem está na lista de espera.</p>
         </details>
         <details>
           <summary>Como compro?</summary>
-          <p>Toque em comprar. A conversa abre com a mensagem pronta, a gente confirma o endereço, manda o link de pagamento e posta o seu boné.</p>
+          <p data-fase="lista">Por enquanto, pela lista de espera. Toque no botão, mande LISTA na conversa e a gente anota o seu @. Quando o lote chegar, você recebe a mensagem para comprar 24 h antes de abrir para todo mundo. Ninguém paga nada antes disso.</p>
+          <p data-fase="venda" hidden>Toque em comprar. A conversa abre com a mensagem pronta, a gente confirma o endereço, manda o link de pagamento e posta o seu boné.</p>
         </details>
       </div>
     </section>
