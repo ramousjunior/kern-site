@@ -1,0 +1,338 @@
+/* =========================================================
+   KERN · site
+   Sistema: Manual de Identidade Visual 2026_01
+   Basalto domina, osso responde, areia e oliva apoiam,
+   cerne é o único acento (reservado ao botão de compra).
+   ========================================================= */
+
+:root {
+  --basalto: #1A1917;
+  --osso: #EEE9E0;
+  --areia: #C8B89E;
+  --oliva: #5C5F40;
+  --cerne: #B9875C;
+
+  --f-titulo: "Archivo", "Arial Black", sans-serif;
+  --f-texto: "Inter", system-ui, sans-serif;
+  --f-dado: "Chivo Mono", ui-monospace, monospace;
+
+  --margem: clamp(1rem, 4vw, 3.5rem);
+  --secao: clamp(5rem, 12vw, 10rem);
+  --linha: 1px solid color-mix(in srgb, var(--osso) 16%, transparent);
+  --linha-escura: 1px solid color-mix(in srgb, var(--basalto) 18%, transparent);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--basalto);
+  color: var(--osso);
+  font-family: var(--f-texto);
+  font-size: 1rem;
+  line-height: 1.625; /* 16/26 */
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; }
+svg { display: block; }
+
+:focus-visible { outline: 2px solid var(--areia); outline-offset: 3px; }
+
+.pular {
+  position: absolute; left: var(--margem); top: -100px; z-index: 50;
+  background: var(--osso); color: var(--basalto); padding: .6rem 1rem;
+  font-weight: 600; text-decoration: none;
+}
+.pular:focus { top: 1rem; }
+
+/* ---------- Tipografia (hierarquia do manual, p. 17) ---------- */
+
+.display {
+  font-family: var(--f-titulo);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 8.2vw, 8.5rem);
+  line-height: .9;
+  letter-spacing: -.01em;
+}
+
+.titulo {
+  font-family: var(--f-titulo);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -.005em;
+}
+
+.subtitulo {
+  font-family: var(--f-titulo);
+  font-weight: 800;
+  font-size: .8125rem; /* 13 */
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  color: var(--areia);
+}
+
+.dado {
+  font-family: var(--f-dado);
+  font-weight: 400;
+  font-size: .8125rem;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* número no meio de uma frase acompanha o tamanho do texto */
+p .dado, dd .dado { font-size: .92em !important; }
+
+/* ---------- Logo ---------- */
+
+.assinatura {
+  display: inline-flex; align-items: center; gap: .55rem;
+  color: var(--osso); text-decoration: none;
+}
+.assinatura__simbolo { width: 30px; height: 30px; }
+.assinatura__wordmark { width: 87px; height: 19px; } /* mínimo de tela: 120px na horizontal */
+.assinatura { --logo-ponto: var(--cerne); } /* negativo preferencial: ponto em cerne */
+
+/* ---------- Topo ---------- */
+
+.topo {
+  position: absolute; inset: 0 0 auto 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.75rem var(--margem);
+}
+.menu { display: flex; gap: clamp(1rem, 3vw, 2.25rem); }
+.menu a {
+  font-size: .9375rem; font-weight: 500; text-decoration: none;
+  color: var(--osso); opacity: .78; transition: opacity .2s;
+}
+.menu a:hover { opacity: 1; }
+
+/* ---------- Botão de compra (único uso do cerne) ---------- */
+
+.botao-comprar {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 3.25rem; padding: 0 1.75rem;
+  background: var(--cerne); color: var(--basalto);
+  font-family: var(--f-texto); font-weight: 600; font-size: 1rem;
+  text-decoration: none; border-radius: 3px;
+  transition: transform .18s cubic-bezier(.2,.7,.3,1), filter .18s;
+}
+.botao-comprar:hover { filter: brightness(1.07); }
+.botao-comprar:active { transform: scale(.97); }
+
+/* ---------- Anéis de crescimento (grafismo, p. 29) ---------- */
+
+.aneis-fundo {
+  position: absolute; pointer-events: none;
+  top: 0; right: 0; width: min(115vw, 1300px); height: auto; aspect-ratio: 1;
+  color: var(--osso); opacity: .08;
+  transform: translate(28%, -30%);
+}
+.aneis-fundo circle { fill: none; stroke: currentColor; stroke-width: 1.2; }
+
+/* ---------- Foto (placeholder até o primeiro ensaio) ---------- */
+
+.foto {
+  position: relative; overflow: hidden;
+  background-color: #23221f; /* basalto com 4% de osso */
+  border-radius: 3px;
+}
+.foto::before { /* grão aparente */
+  content: ""; position: absolute; inset: 0; opacity: .35; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .93 0 0 0 0 .91 0 0 0 0 .88 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+.foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.foto figcaption {
+  position: absolute; left: 1.25rem; bottom: 1.1rem; z-index: 1;
+  color: var(--areia); opacity: .8;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative; overflow: hidden;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: 8rem var(--margem) 5rem;
+}
+.hero__texto { position: relative; z-index: 1; }
+.hero .subtitulo { margin-bottom: 1.6rem; }
+.hero__apoio {
+  max-width: 30ch; margin-top: 1.8rem;
+  font-size: 1.125rem; line-height: 1.55; color: var(--osso); opacity: .82;
+}
+.hero__acoes { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.4rem; flex-wrap: wrap; }
+.hero__acoes .dado { font-size: 1rem; color: var(--areia); }
+
+.foto--hero { aspect-ratio: 4 / 5; width: 100%; max-height: 74svh; justify-self: end; }
+
+.hero__horario {
+  position: absolute; left: var(--margem); bottom: 1.75rem;
+  color: var(--areia); opacity: .7;
+}
+
+/* ---------- Manifesto (osso como base clara) ---------- */
+
+.manifesto {
+  background: var(--osso); color: var(--basalto);
+  padding: var(--secao) var(--margem);
+}
+.manifesto .subtitulo { color: var(--oliva); margin-bottom: 1.4rem; }
+
+.manifesto__palco {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+  min-height: 80svh;
+}
+.manifesto__anel-wrap { position: relative; width: 100%; max-width: 560px; justify-self: center; }
+.cerne-svg { width: 100%; height: auto; aspect-ratio: 1; color: var(--basalto); }
+.cerne-svg .anel { fill: none; stroke: currentColor; }
+.cerne-svg .ponto { fill: var(--cerne); }
+
+.contador {
+  margin-top: 1.25rem; text-align: center; color: var(--oliva);
+  font-size: .9375rem; text-transform: uppercase; letter-spacing: .08em;
+}
+.contador__num { color: var(--basalto); font-weight: 500; }
+
+.manifesto__texto { max-width: 34rem; }
+.manifesto__texto .titulo { margin-bottom: 1.8rem; }
+.manifesto__texto p + p { margin-top: 1.1rem; }
+.manifesto__texto p:not(.subtitulo):not(.manifesto__fecho) { color: #3b3a35; font-size: 1.0625rem; }
+.manifesto__fecho {
+  margin-top: 2rem !important; padding-top: 1.6rem; border-top: var(--linha-escura);
+  font-weight: 600; font-size: 1.125rem;
+}
+
+.pilares {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 clamp(1.25rem, 3vw, 2.5rem);
+  margin-top: var(--secao);
+}
+.pilares li { border-top: 2px solid var(--basalto); padding-top: 1.25rem; }
+.pilares h3 {
+  font-family: var(--f-titulo); font-weight: 800; font-size: 1.1875rem; line-height: 1.2;
+  margin-bottom: .7rem;
+}
+.pilares p { color: var(--oliva); font-size: .9375rem; line-height: 1.55; max-width: 28ch; }
+.pilares .dado { font-size: .875rem; color: var(--basalto); }
+
+/* ---------- Produto ---------- */
+
+.produto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+  padding: var(--secao) var(--margem);
+}
+.foto--produto { aspect-ratio: 4 / 5; position: sticky; top: 2rem; }
+.produto .subtitulo { margin-bottom: 1.4rem; }
+.produto__lede { margin-top: 1.4rem; max-width: 36ch; font-size: 1.125rem; line-height: 1.55; opacity: .85; }
+
+.diferenciais { display: grid; gap: 1.4rem; margin-top: 2.4rem; }
+.diferenciais h3 { font-family: var(--f-titulo); font-weight: 800; font-size: 1.125rem; line-height: 1.25; }
+.diferenciais p { margin-top: .3rem; max-width: 46ch; font-size: .9375rem; line-height: 1.55; opacity: .8; }
+
+.ficha { margin-top: 2.6rem; border-top: var(--linha); }
+.ficha div {
+  display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1rem;
+  padding: .95rem 0; border-bottom: var(--linha);
+}
+.ficha dt { color: var(--areia); font-size: .9375rem; }
+.ficha dd { font-size: .9375rem; line-height: 1.5; }
+.ficha .dado { font-size: .875rem; }
+
+.produto__compra {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  margin-top: 2.4rem;
+}
+.preco { font-size: 1.75rem !important; font-weight: 500; }
+.produto__nota { margin-top: 1.1rem; font-size: .875rem; color: var(--areia); }
+.produto__nota a { color: var(--osso); text-underline-offset: 3px; }
+
+/* ---------- Comunidade (oliva como segunda base) ---------- */
+
+.comunidade {
+  background: var(--oliva); color: var(--osso);
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(2.5rem, 6vw, 6rem); align-items: end;
+  padding: var(--secao) var(--margem);
+}
+.comunidade .subtitulo { color: var(--areia); margin-bottom: 1.4rem; }
+.comunidade__intro p:last-child { margin-top: 1.4rem; max-width: 34ch; font-size: 1.0625rem; }
+.comunidade__intro a { text-underline-offset: 3px; }
+
+.diario { font-family: var(--f-dado); font-variant-numeric: tabular-nums; }
+.diario li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: 1.05rem 0; border-bottom: 1px solid color-mix(in srgb, var(--osso) 28%, transparent);
+  font-size: clamp(.875rem, 1.6vw, 1.0625rem);
+}
+.diario li:first-child { border-top: 1px solid color-mix(in srgb, var(--osso) 28%, transparent); }
+.diario__camada { text-transform: uppercase; letter-spacing: .06em; }
+.diario__dados { color: var(--areia); }
+.diario__salto { justify-content: center !important; color: var(--areia); letter-spacing: .4em; }
+.diario__ultima .diario__camada,
+.diario__ultima .diario__dados {
+  font-family: var(--f-titulo); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem); letter-spacing: 0; color: var(--osso);
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: end;
+  padding: var(--secao) var(--margem) 2.5rem;
+}
+.aneis-fundo--rodape { top: auto; right: auto; bottom: 0; left: 0; transform: translate(-35%, 40%); }
+.rodape__frase { position: relative; font-size: clamp(3rem, 9vw, 7rem); }
+.rodape__info { position: relative; display: grid; gap: 1.1rem; justify-items: start; }
+.assinatura--rodape .assinatura__simbolo { width: 40px; height: 40px; }
+.assinatura--rodape .assinatura__wordmark { width: 120px; height: 26px; }
+.rodape__links { display: grid; gap: .35rem; font-size: .9375rem; }
+.rodape__links a { text-decoration: none; opacity: .85; }
+.rodape__links a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+.rodape__links li:last-child { color: var(--areia); }
+.rodape__ano { color: var(--areia); opacity: .7; }
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 7rem; align-content: start; }
+  .foto--hero { max-height: none; aspect-ratio: 4 / 3; }
+  .hero__horario { display: none; }
+
+  .manifesto__palco { grid-template-columns: 1fr; min-height: 0; }
+  .manifesto__anel-wrap { max-width: 380px; }
+  .pilares { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
+
+  .produto { grid-template-columns: 1fr; }
+  .foto--produto { position: relative; top: 0; aspect-ratio: 4 / 3; }
+
+  .comunidade { grid-template-columns: 1fr; align-items: start; }
+  .rodape { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .topo .assinatura__wordmark { display: none; } /* abaixo de 120px a horizontal não cabe: só o símbolo */
+  .menu { gap: 1rem; }
+  .menu a { font-size: .875rem; }
+  .pilares { grid-template-columns: 1fr; }
+  .ficha div { grid-template-columns: 1fr; gap: .2rem; }
+  .produto__compra .botao-comprar, .hero__acoes .botao-comprar { width: 100%; }
+}
