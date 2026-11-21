@@ -262,6 +262,7 @@ p .dado, dd .dado { font-size: .92em !important; }
   margin-top: 2.4rem;
 }
 .preco { font-size: 1.75rem !important; font-weight: 500; }
+.preco .parcela { display: block; margin-top: .25rem; font-family: var(--f-texto); font-size: .8125rem; font-weight: 400; color: var(--areia); }
 .produto__nota { margin-top: 1.1rem; font-size: .875rem; color: var(--areia); }
 .produto__nota a { color: var(--osso); text-underline-offset: 3px; }
 
